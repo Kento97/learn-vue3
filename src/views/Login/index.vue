@@ -18,7 +18,7 @@
 </template>
 
 <script lang='ts' setup>
-import { reactive, ref } from 'vue'
+import { reactive, ref, toRaw } from 'vue'
 import type { FormInstance } from 'element-plus'
 
 const ruleFormRef = ref<FormInstance>()
@@ -52,6 +52,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
   formEl.validate((valid) => {
     if (valid) {
       console.log('submit!')
+      console.log(toRaw(ruleForm))
     } else {
       console.log('error submit!')
       return false
