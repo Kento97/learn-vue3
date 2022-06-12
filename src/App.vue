@@ -1,4 +1,5 @@
 <template>
+
   <router-view />
 </template>
 
@@ -6,12 +7,12 @@
 import { onMounted } from 'vue';
 
 onMounted(() => {
-  document.title="Vue demo"
+  document.title = "Vue demo"
 })
 </script>
 
 <style lang="scss">
-#app{
+#app {
   font-family: 'Courier New', Courier, monospace;
   font-weight: 600;
 }
