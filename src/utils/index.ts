@@ -1,5 +1,5 @@
 import { http } from "./http";
-import { getToken, setToken } from "./storage";
+import { getToken, setToken, removeToken } from "./storage";
 export {
-    http, getToken, setToken
+    http, getToken, setToken, removeToken
 }

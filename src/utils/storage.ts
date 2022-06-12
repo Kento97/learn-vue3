@@ -4,4 +4,8 @@ function getToken() {
 function setToken(key: string, str: string) {
     localStorage.setItem(key, str)
 }
-export { getToken, setToken }
+
+function removeToken(key: string) {
+    localStorage.removeItem(key)
+}
+export { getToken, setToken ,removeToken}

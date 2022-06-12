@@ -10,7 +10,7 @@ const useLoginStore = defineStore('login', {
     ),
     actions: {
         //通过 this 访问 whole store instance 并提供完整类型（和自动完成✨）支持
-        async getToken({ mobile, code }: LoginParams) {
+        async getTokenFromApi({ mobile, code }: LoginParams) {
             const res = await http.post('/authorizations', { mobile, code })
             console.log(res.data.data)
             this.token = res.data.data.token

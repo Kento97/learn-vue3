@@ -64,7 +64,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
   formEl.validate((valid) => {
     if (valid) {
       const rawRuleForm = toRaw(ruleForm)
-      store.getToken({
+      store.getTokenFromApi({
         mobile: rawRuleForm.mobile,
         code: rawRuleForm.code
       }).then(() => {

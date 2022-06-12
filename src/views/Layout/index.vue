@@ -4,7 +4,10 @@
       <div class="header-item">
         <img src="@/assets/logo.png" alt="logo">
       </div>
-      <div class="header-item">right</div>
+      <div class="header-item">
+        <span class="userName">user.name</span>
+        <span class="logout" @click="logout">退出登录</span>
+      </div>
     </el-header>
     <el-container class="inner-container">
       <el-aside width="200px" class="el-side">
@@ -38,14 +41,16 @@
 </template>
 
 <script lang='ts' setup>
+import useStore from '@/store';
 import {
   Document,
   Menu as IconMenu,
   Location,
   Setting,
 } from '@element-plus/icons-vue'
-import { ref, watch, watchEffect } from 'vue';
 import { useRouter } from 'vue-router';
+import { ElNotification } from 'element-plus'
+import { removeToken } from "@/utils";
 const router = useRouter()
 const currentPath = router.currentRoute.value.path
 const handleOpen = (key: string, keyPath: string[]) => {
@@ -53,6 +58,25 @@ const handleOpen = (key: string, keyPath: string[]) => {
 }
 const handleClose = (key: string, keyPath: string[]) => {
   console.log(key, keyPath)
+}
+
+const { useUserStore } = useStore()
+const userStore = useUserStore()
+userStore.getUserInfo().then((res) => {
+  console.log(res, '用户信息');
+})
+
+//退出登录
+function logout() {
+  removeToken('loginToken')
+  ElNotification({
+    title: 'Success',
+    message: "成功退出",
+    type: 'success',
+  })
+  setTimeout(() => {
+    router.push('/login')
+  }, 1000)
 }
 </script>
 
@@ -74,6 +98,13 @@ const handleClose = (key: string, keyPath: string[]) => {
       img {
         height: 50px;
         margin-left: 50px;
+      }
+
+      .userName {}
+
+      .logout {
+        padding: 0 10px;
+        cursor: pointer;
       }
     }
   }
