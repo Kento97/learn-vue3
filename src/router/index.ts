@@ -6,7 +6,24 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'layout',
-    component: Layout
+    component: Layout,
+    children: [
+      {
+        path: 'home',
+        name: 'home',
+        component: () => import('@/views/Home/index.vue')
+      },
+      {
+        path: 'article',
+        name: 'article',
+        component: () => import('@/views/Article/index.vue')
+      },
+      {
+        path: 'publish',
+        name: 'publish',
+        component: () => import('@/views/Publish/index.vue')
+      }
+    ]
   },
   {
     path: '/login',

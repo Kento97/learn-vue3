@@ -10,19 +10,19 @@
       <el-aside width="200px" class="el-side">
         <el-menu default-active="2" class="el-menu-vertical-demo" :router="true" @open="handleOpen"
           @close="handleClose">
-          <el-menu-item index="1">
+          <el-menu-item index="/home">
             <el-icon>
               <icon-menu />
             </el-icon>
             <span>数据概览</span>
           </el-menu-item>
-          <el-menu-item index="3">
+          <el-menu-item index="/publish">
             <el-icon>
               <document />
             </el-icon>
             <span>内容管理</span>
           </el-menu-item>
-          <el-menu-item index="4">
+          <el-menu-item index="/article">
             <el-icon>
               <setting />
             </el-icon>
@@ -31,7 +31,7 @@
         </el-menu>
       </el-aside>
       <el-main class="main">
-        <div>内容</div>
+        <router-view />
       </el-main>
     </el-container>
   </el-container>
