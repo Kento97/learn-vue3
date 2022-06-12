@@ -8,7 +8,7 @@
     </el-header>
     <el-container class="inner-container">
       <el-aside width="200px" class="el-side">
-        <el-menu default-active="2" class="el-menu-vertical-demo" :router="true" @open="handleOpen"
+        <el-menu default-active="/home" class="el-menu-vertical-demo" :router="true" @open="handleOpen"
           @close="handleClose">
           <el-menu-item index="/home">
             <el-icon>
