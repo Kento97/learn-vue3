@@ -8,7 +8,7 @@
     </el-header>
     <el-container class="inner-container">
       <el-aside width="200px" class="el-side">
-        <el-menu default-active="/home" class="el-menu-vertical-demo" :router="true" @open="handleOpen"
+        <el-menu :default-active='currentPath' class="el-menu-vertical-demo" :router="true" @open="handleOpen"
           @close="handleClose">
           <el-menu-item index="/home">
             <el-icon>
@@ -44,7 +44,10 @@ import {
   Location,
   Setting,
 } from '@element-plus/icons-vue'
-
+import { ref, watch, watchEffect } from 'vue';
+import { useRouter } from 'vue-router';
+const router = useRouter()
+const currentPath = router.currentRoute.value.path
 const handleOpen = (key: string, keyPath: string[]) => {
   console.log(key, keyPath)
 }
