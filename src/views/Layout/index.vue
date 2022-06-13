@@ -60,11 +60,11 @@ const handleClose = (key: string, keyPath: string[]) => {
   console.log(key, keyPath)
 }
 
-const { useUserStore } = useStore()
-const userStore = useUserStore()
-userStore.getUserInfo().then((res) => {
-  console.log(res, '用户信息');
-})
+// const { useUserStore } = useStore()
+// const userStore = useUserStore()
+// userStore.getUserInfo().then((res) => {
+//   console.log(res, '用户信息');
+// })
 
 //退出登录
 function logout() {
